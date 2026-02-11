@@ -8,9 +8,11 @@ interface CharacterListProps {
 }
 export default function characterList({ characters }: CharacterListProps) {
   return (
-    <Stack direction="column">
-      <Typography level="h2">Characters</Typography>
-      <List className="w-[40vw]">
+    <Stack direction="column" className="w-[40vw]">
+      <Typography level="h2" className="pl-3">
+        Characters
+      </Typography>
+      <List>
         {characters.map((e) => (
           <ListItem>
             <ListItemButton>
