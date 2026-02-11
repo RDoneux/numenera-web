@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import api from "../api/axios";
 import type { AxiosResponse } from "axios";
 import { List, ListItem, ListItemButton, ListItemContent, ListItemDecorator } from "@mui/joy";
+import CharacterTypeIcon from "../fragments/character-type-icon";
+import KeyboardDoubleArrowUp from "@mui/icons-material/KeyboardDoubleArrowUp";
 
 export default function dashboard() {
   const [characters, setCharacters] = useState<any[]>([]);
@@ -20,10 +22,14 @@ export default function dashboard() {
       {characters.map((e) => (
         <ListItem>
           <ListItemButton>
-            <i className="ra ra-aware" />
+            <CharacterTypeIcon type={e.type} />
             <ListItemContent>{e.name}</ListItemContent>
-            <ListItemDecorator className="gap-x-1"><i className="ra ra-ball" /> {e.shins}</ListItemDecorator>
-            <ListItemDecorator className="gap-x-1"><i className="ra ra-hive-emblem" /> {e.tier}</ListItemDecorator>
+            <ListItemDecorator className="gap-x-1">
+              <i className="ra  ra-gold-bar" /><small>{e.shins}</small>
+            </ListItemDecorator>
+            <ListItemDecorator>
+              <KeyboardDoubleArrowUp /> <small>{e.tier}</small>
+            </ListItemDecorator>
           </ListItemButton>
         </ListItem>
       ))}
