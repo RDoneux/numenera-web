@@ -1,10 +1,10 @@
 import { FormControl, Input, Stack, FormLabel, Button } from "@mui/joy";
-import Logo from "../assets/numenera-logo.svg?react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
+import NumeneraLogo from "../fragments/NumeneraLogo";
 
-export default function login() {
+export default function Login() {
   const [username, setUsername] = useState<string>();
   const [password, setPassword] = useState<string>();
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ export default function login() {
 
   return (
     <Stack spacing={2} className="w-[40vw] mx-auto background-contrast px-12 pt-5 pb-8 rounded-md">
-      <Logo style={{ color: "#fbfbfb", width: "100%" }} />
+      <NumeneraLogo />
       <FormControl>
         <FormLabel>Username</FormLabel>
         <Input size="lg" type="email" value={username} onChange={(e) => setUsername(e.target.value)} />

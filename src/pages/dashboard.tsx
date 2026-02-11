@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import api from "../api/axios";
 import type { AxiosResponse } from "axios";
 import { List, ListItem, ListItemButton, ListItemContent, ListItemDecorator } from "@mui/joy";
-import CharacterTypeIcon from "../fragments/character-type-icon";
+import CharacterTypeIcon from "../fragments/CharacterTypeIcon";
 import KeyboardDoubleArrowUp from "@mui/icons-material/KeyboardDoubleArrowUp";
 
-export default function dashboard() {
+export default function Dashboard() {
   const [characters, setCharacters] = useState<any[]>([]);
 
   useEffect(() => {
