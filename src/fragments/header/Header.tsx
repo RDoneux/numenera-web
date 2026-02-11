@@ -2,11 +2,8 @@ import NumeneraLogo from "../NumeneraLogo";
 
 export default function Header() {
   return (
-    <header>
+    <header className="py-5">
       <NumeneraLogo />
-      <ul>
-        <li></li>
-      </ul>
     </header>
   );
 }
