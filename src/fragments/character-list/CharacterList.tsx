@@ -5,8 +5,9 @@ import type { ListCharacter } from "../../types/list-character";
 
 interface CharacterListProps {
   characters: ListCharacter[];
+  onCharacterSelected: (id: string) => void
 }
-export default function characterList({ characters }: CharacterListProps) {
+export default function characterList({ characters, onCharacterSelected }: CharacterListProps) {
   return (
     <Stack direction="column" className="w-[40vw]">
       <Typography level="h2" className="pl-3">
@@ -14,7 +15,7 @@ export default function characterList({ characters }: CharacterListProps) {
       </Typography>
       <List>
         {characters.map((e) => (
-          <ListItem>
+          <ListItem onClick={() => onCharacterSelected(e.id)}>
             <ListItemButton>
               <CharacterTypeIcon type={e.type} />
               <ListItemContent>{e.name}</ListItemContent>
