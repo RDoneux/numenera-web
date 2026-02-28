@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
 import LoginForm, { LoginState, type BasicLogin } from "../fragments/login-form/LoginForm";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Login() {
   const [loginState, setLoginState] = useState<LoginState>(LoginState.NO_ATTEMPT);
@@ -45,7 +46,9 @@ export default function Login() {
 
   return (
     <div className="flex items-center justify-center flex-1">
-      <LoginForm loginState={loginState} onSubmit={handleSubmission} />
+      <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease: "easeOut" }}>
+        <LoginForm loginState={loginState} onSubmit={handleSubmission} />
+      </motion.div>
     </div>
   );
 }
