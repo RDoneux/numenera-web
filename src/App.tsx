@@ -1,21 +1,23 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Login from "./pages/Login";
-import Header from "./fragments/header/header";
 import Dashboard from "./pages/Dashboard";
 import Footer from "./fragments/footer/Footer";
+import Header from "./fragments/header/Header";
 
 function App() {
+  const location = useLocation();
+  const isLogin = location.pathname === "/login";
+
   return (
     <div className="flex flex-col min-h-screen min-w-screen">
-      <Header />
-      <main className="flex-1">
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-          </Routes>
-        </BrowserRouter>
+      {!isLogin && <Header />}
+      <main className="flex flex-1">
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          {/* <Route path="*" element={<Login />} /> */}
+        </Routes>
       </main>
       <Footer />
     </div>

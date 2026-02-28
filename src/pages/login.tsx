@@ -1,37 +1,51 @@
-import { FormControl, Input, Stack, FormLabel, Button } from "@mui/joy";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
-import NumeneraLogo from "../fragments/NumeneraLogo";
+import LoginForm, { LoginState, type BasicLogin } from "../fragments/login-form/LoginForm";
+import { useEffect, useState } from "react";
 
 export default function Login() {
-  const [username, setUsername] = useState<string>();
-  const [password, setPassword] = useState<string>();
+  const [loginState, setLoginState] = useState<LoginState>(LoginState.NO_ATTEMPT);
   const navigate = useNavigate();
 
-  const handleSubmission = async () => {
-    await api.get("/login", {
+  useEffect(() => {
+    const checkIfAlreadyLoggedIn = async () => {
+      const response = await api.get("/protected/me", {
+        validateStatus: () => true,
+      });
+
+      if (response.status === 200) {
+        setLoginState(LoginState.SUCCESS);
+        navigate("/dashboard");
+      }
+    };
+
+    checkIfAlreadyLoggedIn();
+  }, []);
+
+  const handleSubmission = async ({ username, password }: BasicLogin) => {
+    setLoginState(LoginState.IN_PROGRESS);
+
+    const response = await api.get("/login", {
       headers: {
         Authorization: `Basic ${btoa(`${username}:${password}`)}`,
       },
       withCredentials: true,
+      validateStatus: () => true, // handle the error manually
     });
 
-    navigate("/dashboard");
+    if (response.status === 401) {
+      setLoginState(LoginState.FAILURE);
+    }
+
+    if (response.status === 200) {
+      setLoginState(LoginState.SUCCESS);
+      navigate("/dashboard");
+    }
   };
 
   return (
-    <Stack spacing={2} className="w-[40vw] mx-auto background-contrast px-12 pt-5 pb-8 rounded-md">
-      <NumeneraLogo />
-      <FormControl>
-        <FormLabel>Username</FormLabel>
-        <Input size="lg" type="email" value={username} onChange={(e) => setUsername(e.target.value)} />
-      </FormControl>
-      <FormControl>
-        <FormLabel>Password</FormLabel>
-        <Input size="lg" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      </FormControl>
-      <Button onClick={handleSubmission}>Login</Button>
-    </Stack>
+    <div className="flex items-center justify-center flex-1">
+      <LoginForm loginState={loginState} onSubmit={handleSubmission} />
+    </div>
   );
 }
