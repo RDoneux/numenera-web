@@ -1,8 +1,7 @@
-@import "tailwindcss";
-@import "rpg-awesome/css/rpg-awesome.css";
+@import 'tailwindcss';
+@import 'rpg-awesome/css/rpg-awesome.css';
 
 :root {
-
   --background-colour: #242424;
   --text-colour: #fbfbfb;
 
@@ -28,5 +27,5 @@ body {
 }
 
 .background-contrast {
-  background-color: var(--joy-palette-background-level1)
+  background-color: var(--joy-palette-background-level1);
 }

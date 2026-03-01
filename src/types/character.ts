@@ -1,24 +1,23 @@
-import type { ListCharacter } from "./list-character";
+import type { ListCharacter } from './list-character'
 
 export interface Character extends ListCharacter {
-    characterFocus: CharacterFocus
-    characterType: CharacterType
-    characterDescriptor: CharacterDescriptor
-
+  characterFocus: CharacterFocus
+  characterType: CharacterType
+  characterDescriptor: CharacterDescriptor
 }
 
 export interface CharacterFocus {
-    name: string;
-    description: string;
-    connection: string;
+  name: string
+  description: string
+  connection: string
 }
 
 export interface CharacterType {
-    name: string;
-    description: string;
+  name: string
+  description: string
 }
 
 export interface CharacterDescriptor {
-    name: string;
-    description: string;
+  name: string
+  description: string
 }

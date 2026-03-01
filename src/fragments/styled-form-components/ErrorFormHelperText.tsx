@@ -1,9 +1,15 @@
-import { FormHelperText } from "@mui/joy";
+import { FormHelperText } from '@mui/joy'
 
 interface ErrorFormHelperText {
-  value: string | undefined;
+  value: string | undefined
 }
 
 export default function ErrorFormHelperText({ value }: ErrorFormHelperText) {
-  return value && <FormHelperText sx={{ color: "var(--joy-palette-danger-plainColor)" }}>{value}</FormHelperText>;
+  return (
+    value && (
+      <FormHelperText sx={{ color: 'var(--joy-palette-danger-plainColor)' }}>
+        {value}
+      </FormHelperText>
+    )
+  )
 }

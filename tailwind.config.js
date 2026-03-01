@@ -4,9 +4,8 @@ module.exports = {
     extend: {
       fontFamily: {
         zenloop: ['"Zen Loop"', 'cursive'],
-                testfont: ['monospace'],
-
+        testfont: ['monospace'],
       },
     },
   },
-};
+}

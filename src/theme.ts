@@ -1,4 +1,4 @@
-import { extendTheme } from '@mui/joy/styles';
+import { extendTheme } from '@mui/joy/styles'
 
 const theme = extendTheme({
   components: {
@@ -14,6 +14,6 @@ const theme = extendTheme({
       },
     },
   },
-});
+})
 
-export default theme;
+export default theme

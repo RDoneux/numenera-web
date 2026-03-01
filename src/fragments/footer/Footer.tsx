@@ -1,4 +1,4 @@
-import packageInfo from "../../../package.json";
+import packageInfo from '../../../package.json'
 
 export default function Footer() {
   return (
@@ -7,5 +7,5 @@ export default function Footer() {
         <small>{packageInfo.version}</small>
       </li>
     </ul>
-  );
+  )
 }
