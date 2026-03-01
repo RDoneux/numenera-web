@@ -72,9 +72,16 @@ export default function LoginForm({ loginState, onSubmit }: LoginFormProps) {
 
   return (
     <form onSubmit={validateAndHandleSubmit}>
-      <Stack spacing={2} className="w-[40vw] mx-auto background-contrast px-12 pt-5 pb-8 rounded-md">
+      <Stack spacing={2} className="w-[40vw] mx-auto background-contrast px-12 pt-5 pb-8 rounded-md border border-[#32383E]">
         <NumeneraLogo />
-        <Typography className="text-center !mt-0 !mb-5" level="body-sm">
+        <Typography
+          sx={{
+            fontFamily: '"Zen Loop", cursive',
+            fontSize: "1.8rem"
+          }}
+          className="text-center !mt-0"
+          level="body-lg"
+        >
           Character Manager
         </Typography>
         <FormControl>
