@@ -1,24 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import api from "../api/axios";
 import type { AxiosResponse } from "axios";
 import CharacterList from "../fragments/character-list/CharacterList";
 import { Box, Stack } from "@mui/joy";
 import CharacterOverview from "../fragments/character-overview/CharacterOverview";
-import type { ListCharacter } from "../types/list-character";
 import type { Character } from "../types/character";
+import { motion } from "framer-motion";
 
 export default function Dashboard() {
-  const [characters, setCharacters] = useState<ListCharacter[]>([]);
   const [selectedCharacter, setSelectedCharacter] = useState<Character | undefined>();
-
-  useEffect(() => {
-    async function getUsers() {
-      const characters: AxiosResponse<ListCharacter[]> = await api.get(`/protected/characters/user`);
-      setCharacters(characters.data);
-    }
-
-    getUsers();
-  }, []);
 
   const handleCharacterSelected = async (id: string) => {
     const character: AxiosResponse<Character> = await api.get(`/protected/character/${id}`);
@@ -26,11 +16,20 @@ export default function Dashboard() {
   };
 
   return (
-    <Stack direction="row" spacing={2}>
-      <Box sx={{ minWidth: "20%" }}>
-        <CharacterList characters={characters} onCharacterSelected={handleCharacterSelected} />
-      </Box>
-      <Box sx={{ maxWidth: "80%" }}>{selectedCharacter && <CharacterOverview character={selectedCharacter} />}</Box>
+    <Stack className="w-full p-10 items-stretch" direction="row" spacing={2}>
+      <motion.div style={{ minWidth: 0, minHeight: 0, height: "100%", display: "flex" }} animate={{ width: selectedCharacter ? "30%" : "100%" }} transition={{ duration: .3, ease: "easeInOut" }}>
+        <CharacterList onCharacterSelected={handleCharacterSelected} />
+      </motion.div>
+      <motion.div
+        style={{ minWidth: 0, overflow: "hidden" }}
+        animate={{
+          width: selectedCharacter ? "70%" : "0%",
+          opacity: selectedCharacter ? 1 : 0,
+        }}
+        transition={{ duration: .3, ease: "easeInOut" }}
+      >
+        {selectedCharacter && <CharacterOverview character={selectedCharacter} />}
+      </motion.div>
     </Stack>
   );
 }
