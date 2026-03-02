@@ -23,7 +23,7 @@ export default function Dashboard() {
     <Stack
       className="w-full p-5 items-stretch max-h-screen"
       direction="row"
-      spacing={2}
+      spacing={10}
     >
       <motion.div
         style={{ minWidth: 0, minHeight: 0, height: '100%', display: 'flex' }}
@@ -33,7 +33,8 @@ export default function Dashboard() {
         <CharacterList onCharacterSelected={handleCharacterSelected} />
       </motion.div>
       <motion.div
-        style={{ minWidth: 0, overflow: 'hidden' }}
+        className="h-full max-h-full"
+        style={{ minWidth: 0 }}
         animate={{
           width: selectedCharacter ? '70%' : '0%',
           opacity: selectedCharacter ? 1 : 0,

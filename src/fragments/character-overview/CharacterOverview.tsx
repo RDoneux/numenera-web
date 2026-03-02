@@ -1,5 +1,6 @@
-import { Grid, Stack, Typography } from '@mui/joy'
+import { Grid } from '@mui/joy'
 import type { Character } from '../../types/character'
+import CharacterEquipmentDisplay from '../character-equipment-display/CharacterEquipmentDisplay'
 
 interface CharacterOverviewProps {
   character: Character
@@ -8,34 +9,11 @@ export default function CharacterOverview({
   character,
 }: CharacterOverviewProps) {
   return (
-    <Grid container>
-      <Grid xs={12}>
-        <Typography>{character.name}</Typography>
+    <Grid container className="h-full max-h-full">
+      <Grid xs={2} className="h-full max-h-full">
+        <CharacterEquipmentDisplay wornItems={character.characterWornItems} />
       </Grid>
-      <Grid xs={12}>
-        <Stack>
-          <Typography>{character.characterFocus.name}</Typography>
-          <Typography level="body-xs">
-            {character.characterFocus.description}
-          </Typography>
-        </Stack>
-      </Grid>
-      <Grid>
-        <Stack>
-          <Typography>{character.characterType.name}</Typography>
-          <Typography level="body-xs">
-            {character.characterType.description}
-          </Typography>
-        </Stack>
-      </Grid>
-      <Grid xs={12}>
-        <Stack>
-          <Typography>{character.characterDescriptor.name}</Typography>
-          <Typography level="body-xs">
-            {character.characterDescriptor.description}
-          </Typography>
-        </Stack>
-      </Grid>
+      <Grid xs={6}></Grid>
     </Grid>
   )
 }
