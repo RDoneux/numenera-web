@@ -10,7 +10,7 @@ export default function CharacterOverview({
 }: CharacterOverviewProps) {
   return (
     <Grid container className="h-full max-h-full">
-      <Grid xs={2} className="h-full max-h-full">
+      <Grid xs={3} className="h-full max-h-full">
         <CharacterEquipmentDisplay wornItems={character.characterWornItems} />
       </Grid>
       <Grid xs={6}></Grid>

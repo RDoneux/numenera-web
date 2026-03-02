@@ -1,4 +1,4 @@
-import { Box, Chip, Typography } from '@mui/joy'
+import { Box, Chip } from '@mui/joy'
 import type { CharacterWornItem } from '../../types/character'
 import BodyOutline from './BodyOutline'
 
@@ -16,11 +16,11 @@ export default function CharacterEquipmentDisplay({
         gridTemplateColumns: '30% 42% 30%',
         gridTemplateRows: '11% 6% 30% 13% 31% 9%',
         gridTemplateAreas: `
-          "leftEar HEAD rightEar"
+          "LEFT_EAR HEAD RIGHT_EAR"
           "NECK NECK NECK"
-          "leftArm TORSO rightArm"
-          "leftHand legs rightHand"
-          "leftBlank legs rightBlank"
+          "LEFT_ARM TORSO RIGHT_ARM"
+          "RIGHT_HAND LEGS LEFT_HAND"
+          "leftBlank LEGS rightBlank"
           "FEET FEET FEET"
         `,
       }}
