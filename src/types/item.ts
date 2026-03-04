@@ -1,17 +1,31 @@
 export const ItemType = {
-    WEAPON: "Weapon",
-    WEAPON_SLOT: "Weapon Slot",
-    ARMOUR: "Armour",
-    ARMOUR_SLOT: "Armour Slot",
-    CYPHER: "Cypher",
-    CYPHER_SLOT: "Cypher Slot",
-    ARTIFACT: "Artifact",
-    EQUIPMENT: "Equipment",
-    ODDITY: "Oddity",
-    ODDITY_SLOT: "Oddity Slot",
-    AMMUNITION: "Ammunition"
+    WEAPON: "WEAPON",
+    WEAPON_SLOT: "WEAPON_SLOT",
+    ARMOUR: "ARMOUR",
+    ARMOUR_SLOT: "ARMOUR_SLOT",
+    CYPHER: "CYPHER",
+    CYPHER_SLOT: "CYPHER_SLOT",
+    ARTIFACT: "ARTIFACT",
+    EQUIPMENT: "EQUIPMENT",
+    ODDITY: "ODDITY",
+    ODDITY_SLOT: "ODDITY_SLOT",
+    AMMUNITION: "AMMUNITION"
 } as const;
 export type ItemType = (typeof ItemType)[keyof typeof ItemType];
+
+export const ItemTypeIconMap = {
+    [ItemType.WEAPON]: "ra-crossed-swords",
+    [ItemType.WEAPON_SLOT]: "ra-slot",
+    [ItemType.ARMOUR]: "ra-shield",
+    [ItemType.ARMOUR_SLOT]: "ra-slot",
+    [ItemType.CYPHER]: "ra-crystal-ball",
+    [ItemType.CYPHER_SLOT]: "ra-slot",
+    [ItemType.ARTIFACT]: "ra-gear",
+    [ItemType.EQUIPMENT]: "ra-backpack",
+    [ItemType.ODDITY]: "ra-question-mark",
+    [ItemType.ODDITY_SLOT]: "ra-slot",
+    [ItemType.AMMUNITION]: "ra-bullet"
+}
 
 export const EquipLocation = {
     HEAD: "Head",

@@ -1,19 +1,11 @@
 export default function BodyOutline() {
   return (
     <svg
-    // width="100%"
-    // height="100%"
-      className="h-full absolute inset-0 w-full pointer-events-none block -z-10"
-            style={{ gridArea: "1 / 1 / -1 / -1" }}
-
+      className="h-full absolute inset-0 w-full pointer-events-none block -z-10 px-4"
+      style={{ gridArea: "1 / 1 / -1 / -1" }}
       version="1.1"
-    //   className="absolute w-full h-full"
       viewBox="60 0 85 206.33"
-    // viewBox="0 0 200 200"
-    // style={{ gridColumn: "1 / -1", gridRow: "1 / -1", width: "100%", height: "100%", position: "absolute", zIndex: 0 }}
-      preserveAspectRatio="none" // or "none" to stretch
-
-
+      preserveAspectRatio="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

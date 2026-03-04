@@ -23,7 +23,7 @@ export default function Dashboard() {
     <Stack
       className="w-full p-5 items-stretch max-h-screen"
       direction="row"
-      spacing={10}
+      spacing={selectedCharacter ? 10 : 0}
     >
       <motion.div
         style={{ minWidth: 0, minHeight: 0, height: '100%', display: 'flex' }}
