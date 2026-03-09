@@ -33,7 +33,7 @@ export default function Dashboard() {
         <CharacterList onCharacterSelected={handleCharacterSelected} />
       </motion.div>
       <motion.div
-        className="h-full max-h-full"
+        className="h-full max-h-full self-center"
         style={{ minWidth: 0 }}
         animate={{
           width: selectedCharacter ? '70%' : '0%',

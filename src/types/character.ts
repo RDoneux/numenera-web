@@ -6,6 +6,7 @@ export interface Character extends ListCharacter {
   characterType: CharacterType
   characterDescriptor: CharacterDescriptor
   characterWornItems: CharacterWornItem[]
+  characterPool: CharacterPool
 }
 
 export interface CharacterFocus {
@@ -34,4 +35,29 @@ export interface CharacterWornItem {
   equippedAt: EquipLocation
   quanty: number
   equipLocations: EquipLocation[]
+}
+
+export interface CharacterPool {
+  mightCurrent: number;
+  mightMax: number;
+  mightEdge: number;
+  mightManualModifier: number;
+  mightEdgeManualModifier: number;
+
+  speedCurrent: number;
+  speedMax: number;
+  speedEdge: number;
+  speedManualModifier: number;
+  speedEdgeManualModifier: number;
+
+  intellectCurrent: number;
+  intellectMax: number;
+  intellectEdge: number;
+  intellectManualModifier: number;
+  intellectEdgeManualModifier: number;
+
+  armour: number;
+  armourManualModifier: number;
+  
+  effort: number;
 }
